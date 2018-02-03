@@ -7,5 +7,8 @@ def index(request):
 def bio(request):
     return render(request, 'learnapp/bio.html')
 
+def swipe(request):
+    return render(request, 'learnapp/swipe.html')
+
 def module(request):
     return render(request, 'learnapp/module.html')

@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def index(request):
+    return render(request, 'learnapp/index.html')
+
+def bio(request):
+    return render(request, 'learnapp/bio.html')

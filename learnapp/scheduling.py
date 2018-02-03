@@ -73,9 +73,17 @@ def book(data):
 
 if __name__ == '__main__':
 	data = {
-		'name': 'Patrick Hainge',
-		'timezone': 'Europe/London',
-		'email': 'patrick.hainge@outlook.co.uk',
-		'password': 'hunter2'
+		'resource_id': 'e9759786-416d-4a80-af64-4c48a7c615e1',
+		'graph': 'confirm_decline',
+		'start': '2018-02-04T15:00:00+00:00',
+		'end': '2018-02-04T16:00:00+00:00',
+		'what': 'Tutorial on lambdas in Python',
+		'where': 'Online',
+		'description': '',
+		'customer': {
+			'name': 'Test Customer',
+			'email': 'haingep@gmail.com',
+			'timezone': 'Europe/London'
+		}
 	}
-	print(create_resource(json.dumps(data)))
+	print(book(data))

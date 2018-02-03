@@ -2,6 +2,7 @@
   "instructors": [
     {
       "id": 0,
+      "uid": "9506e2a0-ac52-4f6b-8149-6898f1208666",
       "name": "Patrick Hainge",
       "email": "patrick.hainge@kcl.ac.uk",
       "password": "hunter2",

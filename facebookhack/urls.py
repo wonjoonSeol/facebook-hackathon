@@ -23,4 +23,5 @@ urlpatterns = [
     path('bio', views.bio),
     path('module', views.module),
     path('register', views.register),
+    path('swipe', views.swipe),
 ]

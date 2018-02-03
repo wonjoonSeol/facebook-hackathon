@@ -22,7 +22,9 @@ def find_instructors_for(skills):
 def pool(course, module):
 	course = db['requests'].find_one({'course': ObjectId(course)})
 	module = course['modules'][module]
-	return list(module)
+	oids = list(module)
+	emails = list(map(lambda oid: db['students'].find_one({'_id': ObjectId(oid)})['email'], oids))
+	return emails
 
 def avg_completion_time(course):
 	def f(x):
@@ -35,23 +37,8 @@ def completion_likelihood(course):
 	n = random.randint(75, 99)
 	return 0.01 * n
 
-def attempt_booking(student_id, instructor_id):
-	student = db['students'].find_one({'_id': student_id})
-	instructor = db['instructors'].find_one('_id': instructor_id)
-
-def get_availability(uid):
-	pass
-
-def book_group_session(students):
-	"""
-	24 * 7 1hr buckets, add every available time for every student
-	sort by length of value list
-	return max 3 as suggestions
-	"""
-	pass
-
 if __name__ == '__main__':
 	#print(get_matches(['python', 'haskell']))
-	#print(pool('5a75e2de734d1d3bd58c804e', 'Map, filter, and reduce'))
+	print(pool('5a75e2de734d1d3bd58c804e', 'Map, filter, and reduce'))
 	print(avg_completion_time('a'))
 	print(completion_likelihood('a'))

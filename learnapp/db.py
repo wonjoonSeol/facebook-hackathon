@@ -30,10 +30,19 @@ def avg_completion_time(course):
 		return 1 / (1 + (e_const**-(-4+0.1*x)))
 	return list(map(lambda n: (n, f(n)), range(0,100,10)))
 
+def completion_likelihood(course):
+	import random
+	n = random.randint(75, 99)
+	return 0.01 * n
+
+def attempt_booking(student_id, instructor_id):
+	student = db['students'].find_one({'_id': student_id})
+	instructor = db['instructors'].find_one('_id': instructor_id)
+
 def get_availability(uid):
 	pass
 
-def find_common_availability(students):
+def book_group_session(students):
 	"""
 	24 * 7 1hr buckets, add every available time for every student
 	sort by length of value list
@@ -45,3 +54,4 @@ if __name__ == '__main__':
 	#print(get_matches(['python', 'haskell']))
 	#print(pool('5a75e2de734d1d3bd58c804e', 'Map, filter, and reduce'))
 	print(avg_completion_time('a'))
+	print(completion_likelihood('a'))

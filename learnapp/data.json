@@ -1,0 +1,83 @@
+{
+  "instructors": [
+    {
+      "id": 0,
+      "uid": "9506e2a0-ac52-4f6b-8149-6898f1208666",
+      "name": "Patrick Hainge",
+      "email": "patrick.hainge@kcl.ac.uk",
+      "password": "hunter2",
+      "bio": "Cheap education for all!",
+      "skills": [
+        "python",
+        "flask",
+        "django"
+      ],
+      "rating": 4.72
+    },
+    {
+      "id": 1,
+      "uid": "e44c0907-7c48-4370-806d-2db9a93905c8",
+      "name": "Hatrick Painge",
+      "email": "patrick.haing@outlook.com",
+      "password": "hunter2",
+      "bio": "Java wizard",
+      "skills": [
+        "java",
+        "c++",
+        "oop"
+      ],
+      "rating": 4.81
+    }
+  ],
+  "students": [
+    {
+      "id": 0,
+      "name": "Wonjoon Seol",
+      "email": "wonjoon.seol@kcl.ac.uk",
+      "password": "hunter2",
+      "subscriptions": [0]
+    },
+    {
+      "id": 1,
+      "name": "Sample Student",
+      "email": "patrick.hainge@outlook.com",
+      "password": "pw",
+      "subscriptions": [0, 1]
+    },
+    {
+      "id": 1,
+      "name": "Alan Turing",
+      "email": "a.turing@gmail.com",
+      "password": "pw",
+      "subscriptions": [0, 2]
+    }
+  ],
+  "courses": [
+    {
+      "id": 0,
+      "instructor_id": 0,
+      "course_name": "Intro to Python",
+      "modules": ["Basic Syntax", "Data Structures", "Iterators", "Program Structure"],
+      "tags": ["python", "beginner"]
+    },
+    {
+      "id": 3,
+      "instructor_id": 1,
+      "course_name": "Python Flask",
+      "modules": ["Intro", "Blueprints", "Authentication", "Dynamic Content"],
+      "tags": ["python", "flask", "web"]
+    },
+    {
+      "id": 1,
+      "instructor_id": 1,
+      "course_name": "Robotics 101",
+      "tags": ["robotics", "c++", "hardware", "arduino"]
+    },
+    {
+      "id": 2,
+      "instructor_id": 0,
+      "course_name": "Advanced SQL",
+      "tags": ["databases", "sql", "advanced", "web"]
+    }
+  ]
+}

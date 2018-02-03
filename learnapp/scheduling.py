@@ -71,6 +71,7 @@ def book(data):
 	response = requests.post(destination, headers=headers, auth=auth, data=json.dumps(data))
 	return response.json()
 
+
 if __name__ == '__main__':
 	data = {
 		'name': 'Hatrick Painge',

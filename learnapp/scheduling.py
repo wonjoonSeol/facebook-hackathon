@@ -20,7 +20,7 @@ def get_resource(uid):
 	response = requests.get(destination, headers=headers, auth=auth)
 	return response.json()
 
-def find_time(uid, data):
+def find_time(data):
 	"""
 	data = {
 		'resource_ids': [],
@@ -73,17 +73,9 @@ def book(data):
 
 if __name__ == '__main__':
 	data = {
-		'resource_id': 'e9759786-416d-4a80-af64-4c48a7c615e1',
-		'graph': 'confirm_decline',
-		'start': '2018-02-04T15:00:00+00:00',
-		'end': '2018-02-04T16:00:00+00:00',
-		'what': 'Tutorial on lambdas in Python',
-		'where': 'Online',
-		'description': '',
-		'customer': {
-			'name': 'Test Customer',
-			'email': 'haingep@gmail.com',
-			'timezone': 'Europe/London'
-		}
+		'name': 'Hatrick Painge',
+		'email': 'patrick.hainge@outlook.com',
+		'timezone': 'Europe/London',
+		'password': 'hunter2'
 	}
-	print(book(data))
+	print(create_resource(data))

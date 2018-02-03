@@ -16,30 +16,17 @@
     },
     {
       "id": 1,
-      "name": "Alin Fulga",
-      "email": "alin.fulga@kcl.ac.uk",
-      "password": "password",
-      "bio": "Teaches good lessons",
+      "uid": "e44c0907-7c48-4370-806d-2db9a93905c8",
+      "name": "Hatrick Painge",
+      "email": "patrick.haing@outlook.com",
+      "password": "hunter2",
+      "bio": "Java wizard",
       "skills": [
+        "java",
         "c++",
-        "assembly",
-        "arduino"
+        "oop"
       ],
-      "rating": 4.91
-    },
-    {
-      "id": 2,
-      "name": "Charles Dickens",
-      "email": "dickyboi@vmail.com",
-      "password": "oliverTw1st",
-      "bio": "Writes an alright book",
-      "skills": [
-        "front-end",
-        "sql",
-        "css",
-        "html5"
-      ],
-      "rating": 4.62
+      "rating": 4.81
     }
   ],
   "students": [
@@ -48,36 +35,49 @@
       "name": "Wonjoon Seol",
       "email": "wonjoon.seol@kcl.ac.uk",
       "password": "hunter2",
-      "subscriptions": [
-        0
-      ]
+      "subscriptions": [0]
     },
     {
       "id": 1,
       "name": "Sample Student",
       "email": "patrick.hainge@outlook.com",
       "password": "pw",
-      "subscriptions": [
-        0,
-        1
-      ]
+      "subscriptions": [0, 1]
+    },
+    {
+      "id": 1,
+      "name": "Alan Turing",
+      "email": "a.turing@gmail.com",
+      "password": "pw",
+      "subscriptions": [0, 2]
     }
   ],
   "courses": [
     {
       "id": 0,
       "instructor_id": 0,
-      "course_name": "Intro to Python"
+      "course_name": "Intro to Python",
+      "modules": ["Basic Syntax", "Data Structures", "Iterators", "Program Structure"],
+      "tags": ["python", "beginner"]
+    },
+    {
+      "id": 3,
+      "instructor_id": 1,
+      "course_name": "Python Flask",
+      "modules": ["Intro", "Blueprints", "Authentication", "Dynamic Content"],
+      "tags": ["python", "flask", "web"]
     },
     {
       "id": 1,
       "instructor_id": 1,
-      "course_name": "Robotics 101"
+      "course_name": "Robotics 101",
+      "tags": ["robotics", "c++", "hardware", "arduino"]
     },
     {
       "id": 2,
-      "instructor_id": 2,
-      "course_name": "Writing Classics"
+      "instructor_id": 0,
+      "course_name": "Advanced SQL",
+      "tags": ["databases", "sql", "advanced", "web"]
     }
   ]
 }

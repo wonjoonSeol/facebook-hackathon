@@ -34,7 +34,7 @@ body {
 }
 
 #tinderslide li {
-    display: block;    
+    display: inline-block;    
     width: 33%;
     height: 100%;
     overflow: hidden;

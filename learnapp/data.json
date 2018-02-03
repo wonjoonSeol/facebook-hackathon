@@ -1,0 +1,82 @@
+{
+  "instructors": [
+    {
+      "id": 0,
+      "name": "Patrick Hainge",
+      "email": "patrick.hainge@kcl.ac.uk",
+      "password": "hunter2",
+      "bio": "Cheap education for all!",
+      "skills": [
+        "python",
+        "flask",
+        "django"
+      ],
+      "rating": 4.72
+    },
+    {
+      "id": 1,
+      "name": "Alin Fulga",
+      "email": "alin.fulga@kcl.ac.uk",
+      "password": "password",
+      "bio": "Teaches good lessons",
+      "skills": [
+        "c++",
+        "assembly",
+        "arduino"
+      ],
+      "rating": 4.91
+    },
+    {
+      "id": 2,
+      "name": "Charles Dickens",
+      "email": "dickyboi@vmail.com",
+      "password": "oliverTw1st",
+      "bio": "Writes an alright book",
+      "skills": [
+        "front-end",
+        "sql",
+        "css",
+        "html5"
+      ],
+      "rating": 4.62
+    }
+  ],
+  "students": [
+    {
+      "id": 0,
+      "name": "Wonjoon Seol",
+      "email": "wonjoon.seol@kcl.ac.uk",
+      "password": "hunter2",
+      "subscriptions": [
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Sample Student",
+      "email": "patrick.hainge@outlook.com",
+      "password": "pw",
+      "subscriptions": [
+        0,
+        1
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": 0,
+      "instructor_id": 0,
+      "course_name": "Intro to Python"
+    },
+    {
+      "id": 1,
+      "instructor_id": 1,
+      "course_name": "Robotics 101"
+    },
+    {
+      "id": 2,
+      "instructor_id": 2,
+      "course_name": "Writing Classics"
+    }
+  ]
+}

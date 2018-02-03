@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('bio', views.bio),
+    path('module', views.module),
 ]

@@ -9,3 +9,6 @@ def bio(request):
 
 def module(request):
     return render(request, 'learnapp/module.html')
+
+def register(request):
+    return render(request, 'learnapp/register.html')

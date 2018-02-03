@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.index),
     path('bio', views.bio),
     path('module', views.module),
+    path('register', views.register),
 ]

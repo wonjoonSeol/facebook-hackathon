@@ -6,3 +6,6 @@ def index(request):
 
 def bio(request):
     return render(request, 'learnapp/bio.html')
+
+def module(request):
+    return render(request, 'learnapp/module.html')

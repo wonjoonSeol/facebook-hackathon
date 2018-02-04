@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Learny - Be efficient</title>
+  <title>Lynder - Be efficient</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -11,9 +11,22 @@
 {% load static %}
     <link rel="stylesheet" href="{% static "styles1.less"|compile %}" />
 
+<style>
+    img { 
+        width:40%;
+        display: block;
+        margin-left: 29%;
+        margin-top: 0;
+        margin-bottom: -180px; 
+    }
+</style>
+
 </head>
 
 <body>
+
+   <img src="{% static 'images/logo.png' %}" alt="logo">
+
    <div class="container">
             <div class="navigation">
                 <ol>
@@ -49,12 +62,12 @@
                     <li>
                         <span><label for="study">What are your interest? Select all that apply</label></span>
                             <select id = "study" name="studyarea" size="6" class="fields" multiple>
-                                <option value="front">Front-end </option>
-                                <option value="back">Back-end </option>
-                                <option value="ios">iOS </option>
-                                <option value="android">Android </option>
-                                <option value="security">Security </option>
-                                <option value="ml">Machine-learning </option>
+                                <option value="0">Front-end </option>
+                                <option value="1">Back-end </option>
+                                <option value="2">iOS </option>
+                                <option value="3">Android </option>
+                                <option value="4">Security </option>
+                                <option value="5">Machine-learning </option>
                            </select>
                     </li>
 
@@ -240,10 +253,14 @@
             marginTop: '0px',
             opacity: 1
           }, 200);
-          if(counter >= 5)
+          if(counter == 5)
             nextli.find('select').focus().addClass('active');
           else
             nextli.find('input').focus().addClass('active');
+            
+          if(counter == 7) {
+              window.location.replace("./swipe");
+          }  
 
         }
 

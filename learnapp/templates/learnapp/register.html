@@ -7,16 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css">
-  <script src="https://cdn.timekit.io/booking-js/v1/booking.min.js" defer></script>
-  <script>window.timekitBookingConfig = { widgetId: '34d3ca5b-4b16-419a-98e6-6722472260b5' }</script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'jTinder.css' %}">  
-
 {% load compile_static %}
 {% load static %}
     <link rel="stylesheet" href="{% static "styles1.less"|compile %}" />
@@ -30,18 +20,20 @@
                     <li><a href="#"  data-ref="name">Name</a></li>
                     <li><a href="#"  data-ref="uname">Username</a></li>
                     <li><a href="#"  data-ref="email">Email</a></li>
-                    <li><a href="#"   data-ref="viewpswd">Password</a></li>
-                    <li><a href="#"  data-ref="phone">Phone</a></li>
+                    <li><a href="#"  data-ref="viewpswd">Password</a></li>
+                    <li><a href="#"  data-ref="study">Study</a></li>
+                    <li><a href="#"  data-ref="teaching">Teaching</a></li>
+
                 </ol>
             </div>
             <form id="sign-form" class="sign-form">
                 <ol class="questions">
                     <li>
-                        <span><label for="name">Hi, What is your Name?</label></span>
+                        <span><label for="name">Hi, What is your name?</label></span>
 						<input class="active" id="name" name="name" type="text" placeholder="Enter your full name" autofocus/>
                     </li>
                     <li>
-				        <span><label for="uname">& what shall we call you?</label></span>
+				        <span><label for="uname">Choose your user ID</label></span>
                         <input id="uname" name="username" type="text" placeholder="Enter a username" autofocus/>
 					</li>
                     <li>
@@ -55,31 +47,31 @@
                         <span id="show-pwd" class="view"></span>
 					</li>
                     <li>
-                        <span><label for="phone">Enter your phone number</label></span>
-                            <select name="countryCode" class="country"  >
-                                <option data-countryCode="GB" value="91">(+91) INDIA </option>
-                                <option data-countryCode="GB" value="44">(+44) UK </option>
-                                <option data-countryCode="US" value="1">(+1) USA </option>
-                                <optgroup label="Other countries">
-                                   <option data-countryCode="DZ" value="213"> (+213)Algeria</option>
-                                   <option data-countryCode="AD" value="376"> (+376) Andorra</option>
-                                   <option data-countryCode="AO" value="244">(+244) Angola </option>
-                                   <option data-countryCode="AI" value="1264"> (+1264) Anguilla</option>
-                                   <option data-countryCode="AG" value="1268">(+1268) Antigua &amp; Barbuda </option>
-                                   <option data-countryCode="AR" value="54">(+54) Argentina </option>
-                                   <option data-countryCode="AM" value="374"> (+374) Armenia</option>
-                                   <option data-countryCode="AW" value="297">(+297) Aruba </option>
-                                   <option data-countryCode="AU" value="61"> (+61) Australia</option>
-                                   <option data-countryCode="AT" value="43">(+43) Austria </option>
-                                   <option data-countryCode="AZ" value="994"> (+994) Azerbaijan</option>
-                                   <option data-countryCode="BS" value="1242">(+1242)Bahamas </option>
-                                </optgroup>
-                            </select>
-                            <input id="phone" name="phone" type="text" autofocus/>
+                        <span><label for="study">What are your interest? Select all that apply</label></span>
+                            <select name="studyarea" size="6" class="fields" multiple>
+                                <option value="front">Front-end </option>
+                                <option value="back">Back-end </option>
+                                <option value="ios">iOS </option>
+                                <option value="android">Android </option>
+                                <option value="security">Security </option>
+                                <option value="ml">Machine-learning </option>
+                           </select>
                     </li>
+                    
+                   <li>
+                        <span><label for="teaching">Which of these traits would your favourite teacher have?</label></span>
+                          <select size="6" multiple>
+                              <option name="teach" value="explain">Explain things well</option>
+                              <option name="teach" value="expert">Expert in their field</option>
+                              <option name="teach" value="friendly">Friendly teacher</option>
+                              <option name="teach" value="fun">Fun lesson</option>
+                              <option name="teach" value="notes">Comprehensive notes </option>
+                              <option name="teach" value="examples">Practical examples</option>
+                          </select>
+                    </li>
+                    
                     <li><p style="margin-top: 45px;font-size: 32pt;float:right">
                         <a href="#" style="color:white;text-decoration:none" id="signup">sign up</a></p>    </li>
-                
                     
                 </ol>
                 <div id="next-page" alt="Kiwi standing on oval"></div>

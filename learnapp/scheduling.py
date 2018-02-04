@@ -4,6 +4,8 @@ import requests
 
 from requests.auth import HTTPBasicAuth
 
+from db import availability_filters
+
 def timestamp():
 	return datetime.datetime.now().isoformat() # timestamp for findtime
 
@@ -20,7 +22,7 @@ def get_resource(uid):
 	response = requests.get(destination, headers=headers, auth=auth)
 	return response.json()
 
-def find_time(data):
+def find_time(student_id, instructor_id):
 	"""
 	data = {
 		'resource_ids': [],
@@ -29,6 +31,12 @@ def find_time(data):
 		'length': '30 minutes'
 	}
 	"""
+	data = {
+		'resource_ids': [instructor_id],
+		'filters': availability_filters(student_id),
+		'future': '4 weeks',
+		'length': '1 hour'
+	}
 	destination = '/'.join((api, 'findtime'))
 	response = requests.post(destination, headers=headers, auth=auth, data=json.dumps(data))
 	return response.json()
@@ -73,10 +81,8 @@ def book(data):
 
 
 if __name__ == '__main__':
-	data = {
-		'name': 'Hatrick Painge',
-		'email': 'patrick.hainge@outlook.com',
-		'timezone': 'Europe/London',
-		'password': 'hunter2'
-	}
-	print(create_resource(data))
+	print(find_time('5a75e690734d1d3bd58c8188', '9506e2a0-ac52-4f6b-8149-6898f1208666'))
+
+
+
+

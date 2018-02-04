@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .db import get_matches_for
 
 def index(request):
     return render(request, 'learnapp/index.html')
@@ -8,7 +9,8 @@ def bio(request):
     return render(request, 'learnapp/bio.html')
 
 def swipe(request):
-    return render(request, 'learnapp/swipe.html')
+    matches = get_matches_for('patrick.hainge@kcl.ac.uk')
+    return render(request, 'learnapp/swipe.html', {'matches': matches})
 
 def module(request):
     return render(request, 'learnapp/module.html')

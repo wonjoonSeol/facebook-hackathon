@@ -5,36 +5,13 @@
         <!-- start jtinder container -->
         <div id="tinderslide">
             <ul>
-                <li class="pane1">
-                    <div class="img"></div>
-                    <div>Chris, Developer at Facebook</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane2">
-                    <div class="img"></div>
-                    <div>Ordinaldo Rodriguez, King's College</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane3">
-                    <div class="img"></div>
-                    <div>Lela Koulouri, Works in AI start-up</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane4">
-                    <div class="img"></div>
-                    <div>Alin Fulga, Lynder CEO</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
-                <li class="pane5">
-                    <div class="img"></div>
-                    <div>Martin Chapman, Professor at UCL</div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                </li>
+                {% for m in matches %}
+                    <li class={{m.0.class}}>
+                        <div>{{m.0.name}}</div>
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
         <!-- end jtinder container -->

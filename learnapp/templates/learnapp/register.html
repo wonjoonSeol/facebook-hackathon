@@ -13,11 +13,9 @@
 
 <style>
     img { 
-        width:40%;
+        width:65vh;
         display: block;
-        margin-left: 29%;
-        margin-top: 0;
-        margin-bottom: -12%; 
+        margin: auto;
     }
 </style>
 
@@ -39,7 +37,7 @@
 
                 </ol>
             </div>
-            <form id="sign-form" class="sign-form">
+            <form id="sign-form" name="myform" class="sign-form">
                 <ol class="questions">
                     <li>
                         <span><label for="name">Hi, What is your name?</label></span>
@@ -73,13 +71,20 @@
 
                    <li>
                         <span><label for="teaching">Which of these traits would your favourite teacher have?</label></span>
-                          <select size="6" multiple>
-                              <option name="teach" value="explain">Explain things well</option>
-                              <option name="teach" value="expert">Expert in their field</option>
-                              <option name="teach" value="friendly">Friendly teacher</option>
-                              <option name="teach" value="fun">Fun lesson</option>
-                              <option name="teach" value="notes">Comprehensive notes </option>
-                              <option name="teach" value="examples">Practical examples</option>
+                          <select size="13" multiple>
+                              <option name="teach" value="Explain things well">Explain things well</option>
+                              <option name="teach" value="Expert in their field">Expert in their field</option>
+                              <option name="teach" value="Friendly teacher">Friendly teacher</option>
+                              <option name="teach" value="Fun lesson">Fun lesson</option>
+                              <option name="teach" value="Comprehensive notes">Comprehensive notes</option>
+                              <option name="teach" value="Enthusiastic">Enthusiastic</option>
+                              <option name="teach" value="Sets clear, achievable goals">Sets clear, achievable goals</option>
+                              <option name="teach" value="Prepared and organised">Prepared and organised</option>
+                              <option name="teach" value="Gives me work appropriate for my ability">Gives me work appropriate for my ability</option>
+                              <option name="teach" value="Makes efficient use of tutorial time">Makes efficient use of tutorial time</option>
+                              <option name="teach" value="Gives great feedback">Gives great feedback</option>
+                              <option name="teach" value="Tailored lessons">Tailored lessons</option>
+                              <option name="teach" value="Sets challenging work">Sets challenging work</option>                              
                           </select>
                     </li>
 
@@ -137,7 +142,7 @@
               event.preventDefault();
             }
 
-            $('#next-page').click(function() {
+            $('#next-page').unbind().click(function() {
               var focusInput = $('.questions').find('.active');
               nextMaster('nextpage');
 
@@ -222,7 +227,7 @@
           }).mouseup(function() {
             $(this).toggleClass('view').toggleClass('hide');
             $('#password').css('opacity', 1);
-            $('#viewpswd').css('opacity', 0);
+            $('#viewpswd').css('opacity', 0);   
           });
 
         });
@@ -258,7 +263,8 @@
           else
             nextli.find('input').focus().addClass('active');
             
-          if(counter == 7) {
+          if(counter == 6) {
+              submitform();  
               window.location.replace("./swipe");
           }  
 
@@ -280,6 +286,12 @@
         function validatePhone(phone) {
           var re = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
           return re.test(phone);
+        }
+        
+        function submitform() {
+            if(document.myform.onsubmit()) {
+                document.myform.submit();
+            }
         }
     </script>
 

@@ -14,13 +14,13 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif;
   font-weight: 100;
   text-align: center;
+  padding: 0;
 }
 .container {
   background: #B7BED8;
   color: #6A79A6;
   display: inline-block;
   padding: 0em 2em;
-  margin: 6em auto;
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
 }
 .container .navigation {

@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from learnapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('bio', views.bio),
+    url(r'bio/(.*)', views.bio),
     path('module', views.module),
     path('register', views.register),
     path('swipe', views.swipe),

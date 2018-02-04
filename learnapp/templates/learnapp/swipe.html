@@ -7,7 +7,15 @@
             <ul>
                 {% for m in matches %}
                     <li class={{m.0.class}}>
-                        <div>{{m.0.name}}</div>
+                        <h3>{{m.0.name}}</h3>
+                        <img src={{m.0.img}} height="250" width="250">
+                        <div>{{m.1}}% Match</div>
+                        <div>
+                            {% for a in m.0.areas %}
+                            <span class="badge badge-primary">{{a}}</span>
+                            {% endfor %}
+                        </div>
+                        <div><a href="/bio/{{m.0.id}}">Bio</a></div>
                         <div class="like"></div>
                         <div class="dislike"></div>
                     </li>

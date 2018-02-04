@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 client = MongoClient('mongodb://root:root@ds113455.mlab.com:13455/fb-hack')
-
+import random
 db = client['fb-hack']
 
 def weight_sum(tag_weights, tags):
@@ -26,9 +26,11 @@ def get_matches_for(email):
 	scores = list(map(lambda i: score(tags, areas, i), area_matches))
 	m = max(scores)
 	scores = list(map(lambda s: 100 * (s / m), scores))
-	area_matches = [(i, s) for s, i in sorted(zip(scores, area_matches), reverse=True)]
+	area_matches = [(i, '%.2f' % s) for s, i in sorted(zip(scores, area_matches), reverse=True)]
 	for i, match in enumerate(area_matches):
 		match[0]['class'] = 'pane' + str(i+1)
+		match[0]['img'] = 'https://randomuser.me/api/portraits/' + random.choice(['men', 'women']) + '/' + str(i) + '.jpg'
+		match[0]['id'] = str(match[0]['_id'])
 	return area_matches[:5]
 
 def get_matches(skills):
@@ -38,6 +40,9 @@ def get_matches(skills):
 
 def find_instructors_for(skills):
 	return list(db['instructors'].find({'skills': {'$in': skills}}))
+
+def get_instructor(id):
+	return db['instructors'].find_one({'_id': ObjectId(id)})
 
 def set_availability(uid, data):
 	db['students'].update_one(

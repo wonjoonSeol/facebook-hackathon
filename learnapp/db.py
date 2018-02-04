@@ -31,6 +31,8 @@ def get_matches_for(email):
 		match[0]['class'] = 'pane' + str(i+1)
 		match[0]['img'] = 'https://randomuser.me/api/portraits/' + random.choice(['men', 'women']) + '/' + str(i) + '.jpg'
 		match[0]['id'] = str(match[0]['_id'])
+		match[0]['tag_scores'] = match[0]['tag-scores']
+		del match[0]['tag-scores']
 	return area_matches[:5]
 
 def get_matches(skills):
@@ -42,7 +44,14 @@ def find_instructors_for(skills):
 	return list(db['instructors'].find({'skills': {'$in': skills}}))
 
 def get_instructor(id):
-	return db['instructors'].find_one({'_id': ObjectId(id)})
+	ret = db['instructors'].find_one({'_id': ObjectId(id)})
+	scores = ret['tag-scores']
+	for k, v in scores.items():
+		scores[k] = "%.2f" % (100.0 * (v / 5.0)) + "%"
+		print(scores[k])
+	del ret['tag-scores']
+	ret['tag_scores'] = scores
+	return ret
 
 def set_availability(uid, data):
 	db['students'].update_one(

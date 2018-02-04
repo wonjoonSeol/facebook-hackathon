@@ -7,6 +7,7 @@ def index(request):
 
 def bio(request, id):
     instructor_obj = get_instructor(id)
+    print(instructor_obj)
     return render(request, 'learnapp/bio.html', {'data': instructor_obj})
 
 def swipe(request):

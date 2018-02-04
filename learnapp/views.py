@@ -10,6 +10,8 @@ def bio(request):
 
 def swipe(request):
     matches = get_matches_for('patrick.hainge@kcl.ac.uk')
+    data = request.POST.get('password')
+    print(data)
     return render(request, 'learnapp/swipe.html', {'matches': matches})
 
 def module(request):

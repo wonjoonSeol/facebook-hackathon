@@ -19,9 +19,8 @@ from learnapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.register),
     path('bio', views.bio),
     path('module', views.module),
-    path('register', views.register),
     path('swipe', views.swipe),
 ]

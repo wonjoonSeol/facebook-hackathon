@@ -1,26 +1,30 @@
 {% extends 'learnapp/base.html' %} {% block content %}
 
+<!doctype html>
+<html>
 
-<div id="profileData" style="display: none;">
-    <p><a href="javascript:void(0);" onclick="logout()">Logout</a></p>
-    <div id="picture"></div>
-    <div class="info">
-        <p id="name"></p>
-        <p id="intro"></p>
-        <p id="email"></p>
-        <p id="location"></p>
-        <p id="link"></p>
+    <div id="profileData" style="display: none;">
+        <p><a href="javascript:void(0);" onclick="logout()">Logout</a></p>
+        <div id="picture"></div>
+        <div class="info">
+            <p id="name"></p>
+            <p id="intro"></p>
+            <p id="email"></p>
+            <p id="location"></p>
+            <p id="link"></p>
+        </div>
     </div>
-</div>
-
-<!-- sign in with linkedin button -->
-<script type="in/Login"></script>
-
-<script type="text/javascript" src="//platform.linkedin.com/in.js">
-    api_key: 861yjxu2pb7vrs
-    authorize: true
-    onLoad: onLinkedInLoad
-    scope: r_basicprofile r_emailaddress
-</script>
+    
+    <!-- sign in with linkedin button -->
+    <script type="in/Login"></script>
+    
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key: 861yjxu2pb7vrs
+        authorize: true
+        onLoad: onLinkedInLoad
+        scope: r_basicprofile r_emailaddress
+    </script>
+    
+</html>
 
 {% endblock %}

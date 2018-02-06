@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .db import get_matches_for
+from .db import get_matches_for, get_instructor
 
 def index(request):
     return render(request, 'learnapp/index.html')
 
-def bio(request):
-    return render(request, 'learnapp/bio.html')
+def bio(request, id):
+    instructor_obj = get_instructor(id)
+    print(instructor_obj)
+    return render(request, 'learnapp/bio.html', {'data': instructor_obj})
 
 def swipe(request):
     matches = get_matches_for('patrick.hainge@kcl.ac.uk')

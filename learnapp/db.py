@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 client = MongoClient('mongodb://root:root@ds113455.mlab.com:13455/fb-hack')
-
+import random
 db = client['fb-hack']
 
 def weight_sum(tag_weights, tags):
@@ -26,9 +26,13 @@ def get_matches_for(email):
 	scores = list(map(lambda i: score(tags, areas, i), area_matches))
 	m = max(scores)
 	scores = list(map(lambda s: 100 * (s / m), scores))
-	area_matches = [(i, s) for s, i in sorted(zip(scores, area_matches), reverse=True)]
+	area_matches = [(i, '%.2f' % s) for s, i in sorted(zip(scores, area_matches), reverse=True)]
 	for i, match in enumerate(area_matches):
 		match[0]['class'] = 'pane' + str(i+1)
+		match[0]['img'] = 'https://randomuser.me/api/portraits/' + random.choice(['men', 'women']) + '/' + str(i) + '.jpg'
+		match[0]['id'] = str(match[0]['_id'])
+		match[0]['tag_scores'] = match[0]['tag-scores']
+		del match[0]['tag-scores']
 	return area_matches[:5]
 
 def get_matches(skills):
@@ -38,6 +42,16 @@ def get_matches(skills):
 
 def find_instructors_for(skills):
 	return list(db['instructors'].find({'skills': {'$in': skills}}))
+
+def get_instructor(id):
+	ret = db['instructors'].find_one({'_id': ObjectId(id)})
+	scores = ret['tag-scores']
+	for k, v in scores.items():
+		scores[k] = "%.2f" % (100.0 * (v / 5.0)) + "%"
+		print(scores[k])
+	del ret['tag-scores']
+	ret['tag_scores'] = scores
+	return ret
 
 def set_availability(uid, data):
 	db['students'].update_one(
